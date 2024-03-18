@@ -1,0 +1,16 @@
+{
+    "dockerFile": "../Dockerfile",
+    "context": "..",
+    "settings": {
+        "python.pythonPath": "/usr/local/bin/python"
+    },
+    "postStartCommand": "echo 'export FLASK_APP=server.py' > /root/.bashrc",
+    "mounts": [
+        "source=${localEnv:USERPROFILE}\\.ssh,target=/root/.ssh,type=bind,consistency=cached",
+		"source=${localEnv:USERPROFILE}\\.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
+    ],
+    "extensions": [
+        "ms-python.python",
+		"ms-python.vscode-pylance"
+    ]
+}
